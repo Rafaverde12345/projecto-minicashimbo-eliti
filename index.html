@@ -6,8 +6,8 @@
     <body>
       <h1>gestão financieira</h1>
 
-      <input id="dia" placeholder="escriba aqui">
-      <input id= "desc" placeholder="escriba aqui">
+      <input id="desc" placeholder="escriba aqui">
+      <input id= "dia" placeholder="escriba aqui">
       <input id="saldo" placeholder="escriba aqui">
 
       <div>
@@ -17,6 +17,8 @@
 
       <script>
         const input = document.querySelector('input')
+        const desc = document.querySelector('desc')
+        const saldo = document.querySelector('saldo')
         array = []
 
        input.addEventListener('keydown', function (e) {
@@ -26,7 +28,11 @@
         })
 
         function agg() {
-        tarea = input.value
+        const tarea = {
+          dia: dia.value,
+          descripcion:desc.value,
+          saldo: saldo.value
+        }
         array.push(tarea)
         console.log(array)
         input.value = ''
