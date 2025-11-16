@@ -7,20 +7,42 @@
       <h1>gestão financieira</h1>
  
       <input id= "dia" type="date" placeholder="escriba aqui">
-      <input id="desc"  placeholder="escriba aqui">
-      <input id="saldo" placeholder="escriba aqui">
+      <input id="desc"  placeholder="descripcion">
+      <input id="saldo" type="number" placeholder="Numeros">
 
-      <div>
+      
         <ul>
 
       </ul>
+<h1>contador</h1>
+<p id="resultado"></p>
+<input id="sumador" placeholder="ponga un valor">
+<button onclick="add()">mais</button>
 
-      <script>
+<script>
+  let numero = 0
+  
+  function add() {
+    const input = document.querySelector('#sumador')
+    let novo = input.value
+    numero = numero + parseInt(novo)
+    tela()
+  }
+
+  function tela() {
+    const p = document.querySelector('#resultado')
+    p.innerText = numero
+  }
+
+  tela()
+
+
+      
         const dia = document.querySelector('#dia')
         const desc = document.querySelector('#desc')
         const saldo = document.querySelector('#saldo')
         array = []
-
+        
        document.addEventListener('keydown', function (e) {
          if (e.key === 'Enter') {
             agg()
