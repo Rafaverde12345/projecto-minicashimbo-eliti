@@ -5,20 +5,43 @@
     </head>
     <body>
       <h1>gestão financieira</h1>
-         <input type="text" id="op1" placeholder="entrada">
-         <input type="text" id="op2" placeholder="saida">
-         <input type="text" id="op3" placeholder="saldo">
-      <div class="lista">
-        <ul><li></li></ul>
-        <ul><li></li></ul>
-        <ul><li></li></ul>    
-     </div>
-     <style>
+
+      <input placeholder="escriba aqui">
+      <div>
+        <ul>
+
+      </ul>
+
+      <script>
+        const input = document.querySelector('input')
+        array = []
+
+       input.addEventListener('keydown', function (e) {
+         if (e.key === 'Enter') {
+            agg()
+          }
+        })
+
+        function agg() {
+        tarea = input.value
+        array.push(tarea)
+        console.log(array)
+        input.value = ''
+         render()
+      }
         
-    .lista {
-      display: flex;
-      gap:  20px;
-    }
-     </style>
+      function render() {
+        const ul = document.querySelector('ul')
+        ul.innerHTML = ''
+        array.forEach( tarea => {
+          const li = document.createElement('li')
+          li.innerText = tarea
+          ul.appendChild(li)
+          
+         
+        });
+      }
+      render()
+      </script>
     </body>
 </html>
